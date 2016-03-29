@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Developed By Damien McGrath">
+    <meta name="author" content="rokib">
+    <meta name="keywords" content="Bootstrap 3, Template, Theme, Responsive, Corporate, Business">
+    <link rel="shortcut icon" href="img/favicon.png">
+
+    <title>Danny Sheehan Golf | Book a lesson</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/theme.css" rel="stylesheet">
+    <link href="css/bootstrap-reset.css" rel="stylesheet">
+    <!--external css-->
+    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/flexslider.css"/>
+    <link href="assets/bxslider/jquery.bxslider.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/animate.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="assets/owlcarousel/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="css/mixitup.css">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="css/component.css">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body ng-app="BookingsApp">
+    <!--header start-->
+    <header class="head-section">
+      <div class="navbar navbar-default navbar-static-top container">
+          <div class="navbar-header">
+              <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse"
+              type="button"><span class="icon-bar"></span> <span class="icon-bar"></span>
+              <span class="icon-bar"></span></button> <a class="navbar-brand" href="index.html">DS 
+              <span> Golf</span></a>
+          </div>
+
+          <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                  <li>
+                      <a href="index.html">Home</a>
+                  </li>
+
+                  <li>
+                      <a href="bookALesson.html">Book a Lesson</a>
+                  </li>
+                  
+                  <li>
+                      <a href="proShop.html">Pro Shop</a>
+                  </li>
+
+                  <li>
+                      <a href="addLesson.html">Add Lesson</a>
+                  </li>
+                  
+                   <li>
+                      <a href="manageBookings.html">Manage Bookings</a>
+                  </li>
+                  
+                   <li>
+                      <a href="contact.html">Contact</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+    </header>
+    <!--header end-->
+
+    <!--breadcrumbs start-->
+    <div class="breadcrumbs">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-sm-4">
+                    <h1>Book a golf lesson</h1>
+                </div>
+                <div class="col-lg-8 col-sm-8">
+                    <ol class="breadcrumb pull-right">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Lesson</a></li>
+                        <li class="active"> Book a lesson</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--breadcrumbs end-->
+
+    <div>
+    <div class="container">
+
+        <div class="row">
+        <div class="col-md-7">
+            <ul id="filters" class="clearfix">
+                <li><span class="filter active" data-filter="mon tue wed thur fri">All</span></li>
+                <li><span class="filter" data-filter="mon">Monday</span></li>
+                <li><span class="filter" data-filter="tue">Tuesday</span></li>
+                <li><span class="filter" data-filter="wed">Wednesday</span></li>
+                <li><span class="filter" data-filter="thur">Thursday</span></li>
+                <li><span class="filter" data-filter="fri">Friday</span></li>
+            </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container" ng-controller="availController">
+        <div class="row  mar-b-30">
+        <div id="portfoliolist">
+            <div class="col-md-12">
+             
+            <div ng-repeat="item in availBookingsList | filter: { StartDay: 'Monday' }" mixitup="mixitup">   
+                <div class="portfolio mon" data-cat="mon">
+                    <div class="portfolio-wrapper">
+                        <div class="portfolio-hover">
+                            <div class="image-caption">
+                                <a href="#" class="label label-info icon" data-toggle="tooltip" data-placement="top" title="Details">Book Now</a>
+                            </div>
+                            <div>
+                                <div class="dateBlock">
+                                    <div class="date-wrap">
+                                      <span class="date">
+                                        {{item.StartDate}}
+                                      </span>
+                                      <span class="time">
+                                         {{item.StartTime}}
+                                      </span>
+                                      <span class="day">
+                                         {{item.StartDay}}
+                                      </span>
+                                      <span class="avail">
+                                        Available - Book Now
+                                      </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-repeat="item in availBookingsList | filter: { StartDay: 'Tuesday' }" mixitup="mixitup">  
+                <div class="portfolio tue" data-cat="tue">
+                    <div class="portfolio-wrapper">
+                        <div class="portfolio-hover">
+                            <div class="image-caption">
+                                <a href="#" class="label label-info icon" data-toggle="tooltip" data-placement="top" title="Details">Book Now</a>
+                            </div>
+                            <div>
+                                <div class="dateBlock">
+                                    <div class="date-wrap">
+                                      <span class="date">
+                                        {{item.StartDate}}
+                                      </span>
+                                      <span class="time">
+                                         {{item.StartTime}}
+                                      </span>
+                                      <span class="day">
+                                         {{item.StartDay}}
+                                      </span>
+                                      <span class="avail">
+                                        Available - Book Now
+                                      </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div ng-repeat="item in availBookingsList | filter: { StartDay: 'Wednesday' }" mixitup="mixitup">  
+                <div class="portfolio wed" data-cat="wed">
+                    <div class="portfolio-wrapper">
+                        <div class="portfolio-hover">
+                            <div class="image-caption">
+                                <a href="#" class="label label-info icon" data-toggle="tooltip" data-placement="top" title="Details">Book Now</a>
+                            </div>
+                            <div>
+                                <div class="dateBlock">
+                                    <div class="date-wrap">
+                                      <span class="date">
+                                        {{item.StartDate}}
+                                      </span>
+                                      <span class="time">
+                                         {{item.StartTime}}
+                                      </span>
+                                      <span class="day">
+                                         {{item.StartDay}}
+                                      </span>
+                                      <span class="avail">
+                                        Available - Book Now
+                                      </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div ng-repeat="item in availBookingsList | filter: { StartDay: 'Thursday' }" mixitup="mixitup">  
+                <div class="portfolio thur" data-cat="thur">
+                    <div class="portfolio-wrapper">
+                        <div class="portfolio-hover">
+                            <div class="image-caption">
+                                <a href="#" class="label label-info icon" data-toggle="tooltip" data-placement="top" title="Details">Book Now</a>
+                            </div>
+                            <div>
+                                <div class="dateBlock">
+                                    <div class="date-wrap">
+                                      <span class="date">
+                                        {{item.StartDate}}
+                                      </span>
+                                      <span class="time">
+                                         {{item.StartTime}}
+                                      </span>
+                                      <span class="day">
+                                         {{item.StartDay}}
+                                      </span>
+                                      <span class="avail">
+                                        Available - Book Now
+                                      </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div ng-repeat="item in availBookingsList | filter: { StartDay: 'Friday' }" mixitup="mixitup">  
+                <div class="portfolio fri" data-cat="fri">
+                    <div class="portfolio-wrapper">
+                        <div class="portfolio-hover">
+                            <div class="image-caption">
+                                <a href="#" class="label label-info icon" data-toggle="tooltip" data-placement="top" title="Details">Book Now</a>
+                            </div>
+                            <div>
+                                <div class="dateBlock">
+                                    <div class="date-wrap">
+                                      <span class="date">
+                                        {{item.StartDate}}
+                                      </span>
+                                      <span class="time">
+                                         {{item.StartTime}}
+                                      </span>
+                                      <span class="day">
+                                         {{item.StartDay}}
+                                      </span>
+                                      <span class="avail">
+                                        Available - Book Now
+                                      </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+        </div>
+
+       </div>
+    </div>
+    </div>
+
+    <!--footer start-->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+            <!-- <div class="col-md-12"> -->
+                <div class="col-lg-3 col-sm-3 address wow fadeInUp" data-wow-duration="2s" data-wow-delay=".1s">
+                     <h1>contact info</h1>
+                     <address>
+                         <p><i class="fa fa-home pr-10"></i>Address: No.XXXXXX street</p>
+                         <p><i class="fa fa-globe pr-10"></i>Mars city, Country</p>
+                         <p><i class="fa fa-mobile pr-10"></i>Mobile : (123) 456-7890</p>
+                         <p><i class="fa fa-phone pr-10"></i>Phone : (123) 456-7890</p>
+                         <p><i class="fa fa-envelope pr-10"></i>Email : <a href="javascript:;">support@example.com</a></p>
+                     </address>
+                 </div>
+                <div class="col-lg-3 col-sm-3 wow fadeInUp" data-wow-duration="2s" data-wow-delay=".3s">
+                    <h1>latest tweet</h1>
+                    <div id="owl-slide">
+                    <div class="tweet-box">
+                        <i class="fa fa-twitter"></i>
+                        <em>Please follow <a href="javascript:;">@example</a> for all future updates of us! <a href="javascript:;">twitter.com/acme</a></em>
+                    </div>
+                    <div class="tweet-box">
+                        <i class="fa fa-twitter"></i>
+                        <em>Please follow <a href="javascript:;">@example</a> for all future updates of us! <a href="javascript:;">twitter.com/acme</a></em>
+                    </div>
+                    <div class="tweet-box">
+                        <i class="fa fa-twitter"></i>
+                        <em>Please follow <a href="javascript:;">@example</a> for all future updates of us! <a href="javascript:;">twitter.com/acme</a></em>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-3">
+                <div class="page-footer wow fadeInUp" data-wow-duration="2s" data-wow-delay=".5s">
+                    <h1>Our Company</h1>
+                    <ul class="page-footer-list">
+
+                        <li><i class="fa fa-angle-right"></i><a href="about.html">About Us</a></li>
+                        <li><i class="fa fa-angle-right"></i><a href="faq.html">Support</a></li>
+                        <li><i class="fa fa-angle-right"></i><a href="service.html">Service</a></li>
+                        <li><i class="fa fa-angle-right"></i><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><i class="fa fa-angle-right"></i><a href="career.html">We are Hiring</a></li>
+                        <li><i class="fa fa-angle-right"></i><a href="terms.html">Term & condition</a></li>
+
+                    </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-3 wow fadeInUp" data-wow-duration="2s" data-wow-delay=".7s">
+                    <div class="page-footer">
+                        <h1>Archive</h1>
+                        <ul class="page-footer-list">
+
+                            <li><i class="fa fa-archive"></i>January</li>
+                            <li><i class="fa fa-archive"></i>February</li>
+                            <li><i class="fa fa-archive"></i>March</li>
+                            <li><i class="fa fa-archive"></i>April</li>
+                            <li><i class="fa fa-archive"></i>May</li>
+                            <li><i class="fa fa-archive"></i>June</li>
+
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- </div> -->
+
+        </div>
+    </div>
+    <div class="footer-small">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-sm-6 pull-right">
+                    <ul class="social-link-footer list-unstyled">
+                        <li class="wow flipInX" data-wow-duration="2s" data-wow-delay=".1s"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li class="wow flipInX" data-wow-duration="2s" data-wow-delay=".2s"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li class="wow flipInX" data-wow-duration="2s" data-wow-delay=".3s"><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                        <li class="wow flipInX" data-wow-duration="2s" data-wow-delay=".4s"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li class="wow flipInX" data-wow-duration="2s" data-wow-delay=".5s"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li class="wow flipInX" data-wow-duration="2s" data-wow-delay=".6s"><a href="#"><i class="fa fa-skype"></i></a></li>
+                        <li class="wow flipInX" data-wow-duration="2s" data-wow-delay=".7s"><a href="#"><i class="fa fa-github"></i></a></li>
+                        <li class="wow flipInX" data-wow-duration="2s" data-wow-delay=".8s"><a href="#"><i class="fa fa-youtube"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                  <div class="copyright">
+                    <p>&copy; Copyright - Acme Theme by cosmic.</p>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--footer end-->
+
+    
+    <!-- js placed at the end of the document so the pages load faster-->
+    <script src="js/jquery-2.2.2.min.js"></script>
+    <!--<script src="js/jquery-1.8.3.min.js"></script>-->
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/hover-dropdown.js"></script>
+    <script defer src="js/jquery.flexslider.js"></script>
+    <script type="text/javascript" src="assets/bxslider/jquery.bxslider.js"></script>
+
+    <script type="text/javascript" src="js/jquery.parallax-1.1.3.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="assets/owlcarousel/owl.carousel.js"></script>
+    <script src="js/mixitup.js"></script>
+    <!--<script src="http://cdn.jsdelivr.net/jquery.mixitup/latest/jquery.mixitup.min.js"></script>-->
+    
+    
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/link-hover.js"></script>
+
+    <!--Start Angular-->
+	<script src="bower_components/angular/angular.js"></script>
+   	<script src="bower_components/angular-route/angular-route.js"></script>
+   	<script src="app.js"></script>
+   	<script src="controllers/services.js"></script>
+   	<script src="controllers/controllers.js"></script>
+    <!--End Angular-->  
+
+
+    <!--common script for all pages-->
+    <script src="js/common-scripts.js"></script>
+
+    <!--<script src="js/revulation-slide.js"></script>-->
+    <script src="js/jquery.magnific-popup.js"></script>
+
+    <script type="text/javascript">
+    // $('.image-caption a').tooltip();
+    // $(function () {
+
+    //     var filterList = {
+
+    //         init: function () {
+
+    //             // MixItUp plugin
+    //             // http://mixitup.io
+    //             // $('#portfoliolist').mixitup({
+    //             //     targetSelector: '.portfolio',
+    //             //     filterSelector: '.filter',
+    //             //     effects: ['fade'],
+    //             //     easing: 'snap',
+    //             //     // call the hover effect
+    //             //     onMixEnd: filterList.hoverEffect()
+    //             // });
+
+    //         },
+
+    //         hoverEffect: function () {
+    //             $("[rel='tooltip']").tooltip();
+    //             // Simple parallax effect
+    //             $('#portfoliolist .portfolio .portfolio-hover').hover(
+    //                 function(){
+    //                     $(this).find('.image-caption').slideDown(250); //.fadeIn(250)
+    //                 },
+    //                 function(){
+    //                     $(this).find('.image-caption').slideUp(250); //.fadeOut(205)
+    //                 }
+    //         );
+
+
+
+    //         }
+
+    //     };
+
+    //     // Run the show!
+    //     filterList.init();
+
+
+    // });
+
+    // $( document ).ready(function() {
+
+    //     $('.magnefig').each(function(){
+    //         $(this).magnificPopup({
+    //             type:'image',
+    //             removalDelay: 300,
+    //             mainClass: 'mfp-fade'
+    //         })
+    //     });
+    // });
+    </script>
+
+  <script>
+
+    $(document).ready(function() {
+
+        $("#owl-demo").owlCarousel({
+
+            autoPlay: 3000, //Set AutoPlay to 3 seconds
+
+            items : 4,
+            itemsDesktop : [1199,3],
+            itemsDesktopSmall : [979,3],
+            stopOnHover : true,
+
+        });
+
+    });
+
+    new WOW().init();
+
+
+  </script>
+ </body>
+</html>

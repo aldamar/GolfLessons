@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Golf Lessons</title></title>
+</head>
+
+<!--<body ng-app="F1FeederApp" ng-controller="driversController">-->
+<body>
+
+<table ng-app="BookingsApp" ng-controller="bookingsController">
+    <thead>
+      <tr><th colspan="4">Golf Bookings</th></tr>
+    </thead>
+     <tbody>
+      <tr ng-repeat="item in bookingsList">
+        <td>{{$index + 1}}</td>
+        <td>{{item._id}}</td>
+        <td>{{item.Status}}</td>
+        <td>{{item.Coach}}</td>
+      </tr>
+    </tbody>
+</table>
+
+<!--<table ng-app="BookingsApp" ng-controller="bookingsController">-->
+<!--    <thead>-->
+<!--      <tr><th colspan="4">Available times</th></tr>-->
+<!--    </thead>-->
+<!--     <tbody>-->
+<!--      <tr ng-repeat="item in bookingsList">-->
+<!--        <td>{{$index + 1}}</td>-->
+<!--        <td>{{item._id}}</td>-->
+<!--        <td>{{item.Status}}</td>-->
+<!--        <td>{{item.Coach}}</td>-->
+<!--      </tr>-->
+<!--    </tbody>-->
+<!--</table>-->
+
+
+<!--  <table>-->
+<!--<thead>-->
+<!--      <tr><th colspan="4">Driver Standings</th></tr>-->
+<!--    </thead>-->
+<!--    <tbody ng-app="F1FeederApp" ng-controller="driversController">-->
+<!--      <tr ng-repeat="driver in driversList">-->
+<!--        <td>{{$index + 1}}</td>-->
+<!--        <td>-->
+<!--          <img src="img/flags/{{driver.Driver.nationality}}.png" />-->
+<!--          {{driver.Driver.givenName}}&nbsp;{{driver.Driver.familyName}}-->
+<!--        </td>-->
+<!--        <td>{{driver.Constructors[0].name}}</td>-->
+<!--        <td>{{driver.points}}</td>-->
+<!--      </tr>-->
+<!--    </tbody>-->
+<!--  </table>-->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="app.js"></script>
+  <script src="controllers/services.js"></script>
+  <script src="controllers/controllers.js"></script>
+</body>
+</html>
