@@ -4,18 +4,37 @@
 //   'Bookings.controllers',
 //   'Bookings.services'
 // ]);
-
 angular.module('BookingsApp', [
   'Bookings.controllers',
-  'Bookings.services'
+  'Bookings.services',
+  'ngRoute'
 ])
 
-.config(function($sceDelegateProvider) {
-  $sceDelegateProvider.resourceUrlWhitelist([
-    // Allow same origin resource loads.
-    'self',
-    // Allow loading from outer templates domain.
-    'http://golflessons-aldamar.c9users.io/api/**'
-  ]); 
-});
+.config(['$routeProvider',
+  function($routeProvider) {
+    $routeProvider.
+      when('/bookings/:bookingId', {
+        templateUrl: 'test.html',
+        controller: 'availController'
+      }).
+      otherwise({
+        redirectTo: '/'
+      });
+}]);
 
+
+// angular.module('BookingsApp', [
+//   'Bookings.controllers',
+//   'Bookings.services',
+//   'ngRoute',
+//   'otherApp'
+// ])
+
+// .config(function($sceDelegateProvider) {
+//   $sceDelegateProvider.resourceUrlWhitelist([
+//     // Allow same origin resource loads.
+//     'self',
+//     // Allow loading from outer templates domain.
+//     'http://golflessons-aldamar.c9users.io/api/**'
+//   ]); 
+// });
