@@ -1,0 +1,160 @@
+<div class="container" ng-controller="availController">
+            <div class="row  mar-b-30">
+            <div id="portfoliolist">
+                <div class="col-md-12">
+                 
+                <div ng-repeat="item in availBookingsList | filter: { StartDay: 'Monday' }" mixitup="mixitup">   
+                    <div class="portfolio mon" data-cat="mon">
+                        <div class="portfolio-wrapper">
+                            <div class="portfolio-hover">
+                                <div class="image-caption">
+                                    <a href="#/bookings/{{item._id}}" class="label label-info icon" data-toggle="tooltip" data-placement="top" title="Details">Book Now</a>
+                                </div>
+                                <div>
+                                    <div class="dateBlock">
+                                        <div class="date-wrap">
+                                          <span class="date">
+                                            {{item.StartDate}}
+                                          </span>
+                                          <span class="time">
+                                             {{item.StartTime}}
+                                          </span>
+                                          <span class="day">
+                                             {{item.StartDay}}
+                                          </span>
+                                          <span class="avail">
+                                            Available - Book Now
+                                          </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div ng-repeat="item in availBookingsList | filter: { StartDay: 'Tuesday' }" mixitup="mixitup">  
+                    <div class="portfolio tue" data-cat="tue">
+                        <div class="portfolio-wrapper">
+                            <div class="portfolio-hover">
+                                <div class="image-caption">
+                                    <a href="#/bookings/{{item._id}}" class="label label-info icon" data-toggle="tooltip" data-placement="top" title="Details">Book Now</a>
+                                </div>
+                                <div>
+                                    <div class="dateBlock">
+                                        <div class="date-wrap">
+                                          <span class="date">
+                                            {{item.StartDate}}
+                                          </span>
+                                          <span class="time">
+                                             {{item.StartTime}}
+                                          </span>
+                                          <span class="day">
+                                             {{item.StartDay}}
+                                          </span>
+                                          <span class="avail">
+                                            Available - Book Now
+                                          </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div ng-repeat="item in availBookingsList | filter: { StartDay: 'Wednesday' }" mixitup="mixitup">  
+                    <div class="portfolio wed" data-cat="wed">
+                        <div class="portfolio-wrapper">
+                            <div class="portfolio-hover">
+                                <div class="image-caption">
+                                    <a href="#/bookings/{{item._id}}" class="label label-info icon" data-toggle="tooltip" data-placement="top" title="Details">Book Now</a>
+                                </div>
+                                <div>
+                                    <div class="dateBlock">
+                                        <div class="date-wrap">
+                                          <span class="date">
+                                            {{item.StartDate}}
+                                          </span>
+                                          <span class="time">
+                                             {{item.StartTime}}
+                                          </span>
+                                          <span class="day">
+                                             {{item.StartDay}}
+                                          </span>
+                                          <span class="avail">
+                                            Available - Book Now
+                                          </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div ng-repeat="item in availBookingsList | filter: { StartDay: 'Thursday' }" mixitup="mixitup">  
+                    <div class="portfolio thur" data-cat="thur">
+                        <div class="portfolio-wrapper">
+                            <div class="portfolio-hover">
+                                <div class="image-caption">
+                                    <a href="#/bookings/{{item._id}}" class="label label-info icon" data-toggle="tooltip" data-placement="top" title="Details">Book Now</a>
+                                </div>
+                                <div>
+                                    <div class="dateBlock">
+                                        <div class="date-wrap">
+                                          <span class="date">
+                                            {{item.StartDate}}
+                                          </span>
+                                          <span class="time">
+                                             {{item.StartTime}}
+                                          </span>
+                                          <span class="day">
+                                             {{item.StartDay}}
+                                          </span>
+                                          <span class="avail">
+                                            Available - Book Now
+                                          </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div ng-repeat="item in availBookingsList | filter: { StartDay: 'Friday' }" mixitup="mixitup">  
+                    <div class="portfolio fri" data-cat="fri">
+                        <div class="portfolio-wrapper">
+                            <div class="portfolio-hover">
+                                <div class="image-caption">
+                                    <a href="#/bookings/{{item._id}}" class="label label-info icon" data-toggle="tooltip" data-placement="top" title="Details">Book Now</a>
+                                </div>
+                                <div>
+                                    <div class="dateBlock">
+                                        <div class="date-wrap">
+                                          <span class="date">
+                                            {{item.StartDate}}
+                                          </span>
+                                          <span class="time">
+                                             {{item.StartTime}}
+                                          </span>
+                                          <span class="day">
+                                             {{item.StartDay}}
+                                          </span>
+                                          <span class="avail">
+                                            Available - Book Now
+                                          </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+    
+            </div>
+    
+           </div>
+        </div>

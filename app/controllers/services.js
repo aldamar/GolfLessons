@@ -18,6 +18,14 @@ angular.module('Bookings.services', []).
         dataType: 'jsonp'
       });
     }
+    
+    bookingsAPI.getBookingDetails = function(bookingId) {
+      return $http({
+        method: 'JSONP', 
+        url: 'http://golflessons-aldamar.c9users.io/api/availGolfLesson/'+ bookingId +'?callback=JSON_CALLBACK',
+        dataType: 'jsonp'
+      });
+    }
         
     return bookingsAPI;
   });

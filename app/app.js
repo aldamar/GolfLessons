@@ -13,9 +13,17 @@ angular.module('BookingsApp', [
 .config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
-      when('/bookings/:bookingId', {
-        templateUrl: 'test.html',
+     when('/', {
+        templateUrl: 'views/availableLessons.html',
         controller: 'availController'
+      }).
+     when('/bookings', {
+        templateUrl: 'views/availableLessons.html',
+        controller: 'availController'
+      }).
+      when('/bookings/:bookingId', {
+        templateUrl: 'views/bookingForm.html',
+        controller: 'availBookingDetailController'
       }).
       otherwise({
         redirectTo: '/'

@@ -116,6 +116,56 @@ router.route('/golfLesson/:lesson_id')
         });
 })
 
+router.route('/availGolfLesson/:bookingId')
+
+    // get the lesson with that id (accessed at GET http://localhost:8080/api/voucher/:voucher_id)
+    .get(function(req, res) {
+        Lesson.findById(req.params.bookingId, function(err, golfLesson) {
+            if (err)
+                res.send(err);
+            res.jsonp(golfLesson);
+        });
+    })
+    
+    // .put(function(req, res) {
+    //     // use our lesson model to find the lesson we want
+    //     Lesson.findById(req.params.lesson_id, function(err, golfLesson) {
+
+    //         if (err)
+    //             res.send(err);
+
+    //         golfLesson.Status = "booked";  // update the lesson info
+
+    //         // save the lesson
+    //         golfLesson.save(function(err) {
+    //             if (err)
+    //                 res.send(err);
+
+    //             res.jsonp({ message: 'Lesson updated!' });
+    //         });
+    //     });
+    // })
+    
+    // .post(function (req, res) {
+        
+    //     Lesson.findById(req.params.lesson_id, 
+    //         function(err, golfLesson) {
+    //             if (err)
+    //                 res.send(err);
+                
+    //              golfLesson.remove(function(err) {
+    //                 if (err) {
+    //                     res.statusCode = 403;
+    //                     res.send(err);
+    //                 } else {
+    //                     //res.json(golfLesson);
+    //                     res.jsonp({ message: 'Lesson Removed' });
+    //                 }
+    //             });   
+                    
+    //     });
+//})
+
 // ----------------------------------------------------
 router.route('/addGolfLesson')
 

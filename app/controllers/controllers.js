@@ -21,13 +21,21 @@ controller('bookedController', function($scope, bookingsAPIservice) {
     });
 }).
 
+controller('availBookingDetailController', function($scope, $routeParams, bookingsAPIservice) {
+    $scope.bookingId = $routeParams.bookingId;
+    $scope.availBookingDetail = [];
+    
+    bookingsAPIservice.getBookingDetails($scope.bookingId).success(function (response) {
+        //Dig into the respond to get the relevant data
+        $scope.availBookingDetail = response;
+    });
+}).
+
 directive('mixitup',function($timeout){
     var linker = function(scope,element,attrs) {
 
             scope.$on("cat_done", function(){ 
                 $timeout(function(){
-                console.log('reload');
-                console.log("!================ ");
                 element.mixItUp({
                 	callbacks: {
                 		onMixFail: function(state){	console.log('No elements found matching ',state); },
@@ -35,12 +43,8 @@ directive('mixitup',function($timeout){
                 	}
                 });
                 //do the things
-                 console.log('do the things');
                 });
             });
-
-        console.log('starting id ' + element.attr('id'));
-        console.log('starting class ' + element.attr('class'));
         
         var filterList = {
 
@@ -78,8 +82,6 @@ directive('mixitup',function($timeout){
 
         // Run the show!
         filterList.init();
-        
-        console.log("run the show");
         
     };
     
