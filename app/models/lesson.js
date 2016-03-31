@@ -4,7 +4,6 @@ var Schema       = mongoose.Schema;
 var LessonSchema   = new Schema({
     StartDate: Date,
     StartTime: String,
-    StartDay: String,
     Duration: Number,
     Student: String,
     Coach: String,

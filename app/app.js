@@ -1,9 +1,5 @@
 'use strict';
 
-// angular.module('BookingsApp', [
-//   'Bookings.controllers',
-//   'Bookings.services'
-// ]);
 angular.module('BookingsApp', [
   'Bookings.controllers',
   'Bookings.services',
@@ -38,13 +34,3 @@ angular.module('BookingsApp', [
     'http://golflessons-aldamar.c9users.io/api/**'
   ]); 
 });
-
-
-
-// angular.module('BookingsApp', [
-//   'Bookings.controllers',
-//   'Bookings.services',
-//   'ngRoute',
-//   'otherApp'
-// ])
-

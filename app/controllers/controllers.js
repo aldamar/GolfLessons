@@ -1,5 +1,3 @@
-//var moment = require('moment');
-
 angular.module('Bookings.controllers', []).
   controller('availController', function($scope, bookingsAPIservice) {
     $scope.nameFilter = null;
@@ -81,7 +79,6 @@ directive('mixitup',function($timeout){
             hoverEffect: function () {
                 $("[rel='tooltip']").tooltip();
                 // Simple parallax effect
-                //element.children("#portfoliolist .portfolio .portfolio-hover").hover(
                   element.hover(
                     function(){
                         $(this).find('.image-caption').slideDown(250); //.fadeIn(250)
