@@ -1,3 +1,5 @@
+//var moment = require('moment');
+
 angular.module('Bookings.controllers', []).
   controller('availController', function($scope, bookingsAPIservice) {
     $scope.nameFilter = null;
@@ -29,6 +31,19 @@ controller('availBookingDetailController', function($scope, $routeParams, bookin
         //Dig into the respond to get the relevant data
         $scope.availBookingDetail = response;
     });
+}).
+
+directive('date', function ($timeout) {
+    return {
+      link: function (scope, element, attrs, ctrl) {
+        var hello = function () {
+          element.find('.date').html(function(index, value) {
+                 return moment(value).format("Do MMMM");
+            });
+        }
+        $timeout(hello, 0);
+      }
+    }
 }).
 
 directive('mixitup',function($timeout){

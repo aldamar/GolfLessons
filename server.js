@@ -11,6 +11,7 @@ mongoose.connect('mongodb://0.0.0.0:27017'); // connect to our database
 var express    = require('express');        // call express
 var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
+var moment = require('moment');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST

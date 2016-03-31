@@ -25,6 +25,8 @@
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
     <link href="css/style-responsive.css" rel="stylesheet" />
+    
+     <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
     <!--[if lt IE 9]>
@@ -102,11 +104,9 @@
                 <div class="login-wrap">
                     <p>Enter details</p>
                     <input type="text" class="form-control" placeholder="StartDate" autofocus="" name="startdate" id="startdate"/>
-                    <input type="text" class="form-control" placeholder="StartDay" autofocus="" name="startday" id="startday"/>
                     <input type="text" class="form-control" placeholder="StartTime" autofocus="" name="starttime" id="starttime"/>
                     
                     <button class="btn btn-lg btn-login btn-block" type="submit">Submit</button>
-
                 </div>
             </form>
 
@@ -217,6 +217,16 @@
         )
         wow.init();
     </script>
+   
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script>
+         $(function() {
+            $( "#startdate" ).datepicker({
+               showAnim: "fadeIn"
+            });
+         });
+      </script>
 
   </body>
 </html>

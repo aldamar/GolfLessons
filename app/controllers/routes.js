@@ -1,6 +1,7 @@
 var express = require('express')
   , router = express.Router()
-  , Lesson = require('../models/lesson');
+  , Lesson = require('../models/lesson')
+  , moment = require('moment');
 // ----------------------------------------------------
 router.route('/golfLesson')
 
@@ -172,9 +173,16 @@ router.route('/addGolfLesson')
     // create a lesson (accessed at POST http://localhost:8080/api/createNewLesson)
     .post(function(req, res) {
         
+        var formDate = new Date(req.body.startdate);
+        var formStartDate = moment(formDate);
+        var formStartDay = formStartDate.day(); 
+        
+        console.log("Date: " + formStartDate);
+        
+        
         var golfLesson = new Lesson();      // create a new instance of the Lesson model
-        golfLesson.StartDate = req.body.startdate;
-        golfLesson.StartDay = req.body.startday;
+        golfLesson.StartDate = formStartDate;
+        golfLesson.StartDay = formStartDate.format('dddd');
         golfLesson.StartTime = req.body.starttime;
         golfLesson.Duration = 30; 
         golfLesson.Student = "Barry";
@@ -184,7 +192,7 @@ router.route('/addGolfLesson')
 
         //res.send('You sent the name "' + req.body.startdate + '".');
 
-        // save the lesson and check for errors
+        //save the lesson and check for errors
         golfLesson.save(function(err) {
             if (err)
                 res.send(err);

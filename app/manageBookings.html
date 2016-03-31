@@ -158,12 +158,14 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr class="success" ng-repeat="item in bookingsList">
+                    <tr class="success" ng-repeat="item in bookingsList" date="date">
                       <td>
                         {{$index+1}}
                       </td>
                       <td>
-                        {{item.StartDate}}
+                        <span class="date">
+                          {{item.StartDate}}
+                        </span>
                       </td>
                       <td>
                         {{item.StartDay}}
@@ -219,12 +221,14 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr class="warning" ng-repeat="item in availBookingsList">
+                    <tr class="warning" ng-repeat="item in availBookingsList" date="date">
                       <td>
                         {{$index+1}}
                       </td>
                       <td>
-                        {{item.StartDate}}
+                          <span class="date">
+                            {{item.StartDate}}
+                          </span>
                       </td>
                       <td>
                         {{item.StartDay}}
@@ -362,6 +366,7 @@
     </script>
     <script src="js/wow.min.js">
     </script>
+    <script src="/app/js/moment-2.2.1.js" type="text/javascript"></script>
     <script>
       wow = new WOW(
         {

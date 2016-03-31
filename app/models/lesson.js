@@ -2,7 +2,7 @@ var mongoose     = require('mongoose');
 var Schema       = mongoose.Schema;
 
 var LessonSchema   = new Schema({
-    StartDate: String,
+    StartDate: Date,
     StartTime: String,
     StartDay: String,
     Duration: Number,

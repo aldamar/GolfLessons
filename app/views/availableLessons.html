@@ -3,7 +3,7 @@
             <div id="portfoliolist">
                 <div class="col-md-12">
                  
-                <div ng-repeat="item in availBookingsList | filter: { StartDay: 'Monday' }" mixitup="mixitup">   
+                <div ng-repeat="item in availBookingsList | filter: { StartDay: 'Monday' }" mixitup="mixitup" date="date">    
                     <div class="portfolio mon" data-cat="mon">
                         <div class="portfolio-wrapper">
                             <div class="portfolio-hover">
@@ -33,7 +33,7 @@
                     </div>
                 </div>
     
-                <div ng-repeat="item in availBookingsList | filter: { StartDay: 'Tuesday' }" mixitup="mixitup">  
+                <div ng-repeat="item in availBookingsList | filter: { StartDay: 'Tuesday' }" mixitup="mixitup" date="date">  
                     <div class="portfolio tue" data-cat="tue">
                         <div class="portfolio-wrapper">
                             <div class="portfolio-hover">
@@ -63,7 +63,7 @@
                     </div>
                 </div>
                 
-                <div ng-repeat="item in availBookingsList | filter: { StartDay: 'Wednesday' }" mixitup="mixitup">  
+                <div ng-repeat="item in availBookingsList | filter: { StartDay: 'Wednesday' }" mixitup="mixitup" date="date">  
                     <div class="portfolio wed" data-cat="wed">
                         <div class="portfolio-wrapper">
                             <div class="portfolio-hover">
@@ -93,7 +93,7 @@
                     </div>
                 </div>
                 
-                <div ng-repeat="item in availBookingsList | filter: { StartDay: 'Thursday' }" mixitup="mixitup">  
+                <div ng-repeat="item in availBookingsList | filter: { StartDay: 'Thursday' }" mixitup="mixitup" date="date">  
                     <div class="portfolio thur" data-cat="thur">
                         <div class="portfolio-wrapper">
                             <div class="portfolio-hover">
@@ -123,7 +123,7 @@
                     </div>
                 </div>
                 
-                <div ng-repeat="item in availBookingsList | filter: { StartDay: 'Friday' }" mixitup="mixitup">  
+                <div ng-repeat="item in availBookingsList | filter: { StartDay: 'Friday' }" mixitup="mixitup" date="date">  
                     <div class="portfolio fri" data-cat="fri">
                         <div class="portfolio-wrapper">
                             <div class="portfolio-hover">
