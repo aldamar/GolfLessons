@@ -28,18 +28,22 @@ controller('availBookingDetailController', function($scope, $routeParams, bookin
     bookingsAPIservice.getBookingDetails($scope.bookingId).success(function (response) {
         //Dig into the respond to get the relevant data
         $scope.availBookingDetail = response;
+        $scope.$broadcast("bookings_done");
     });
 }).
 
 directive('date', function ($timeout) {
     return {
       link: function (scope, element, attrs, ctrl) {
-        var hello = function () {
-          element.find('.date').html(function(index, value) {
-                 return moment(value).format("Do MMMM");
+        var formatDate = function () {
+            element.find('.date').html(function(index, value) {
+                return moment(value).format("Do MMMM");
+            });
+            element.find('.day').html(function(index, value) {
+                return moment(value).format("dddd");
             });
         }
-        $timeout(hello, 0);
+        $timeout(formatDate, 200);
       }
     }
 }).

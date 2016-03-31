@@ -39,7 +39,7 @@
 <![endif]-->
   </head>
 
-  <body ng-app="BookingsApp">
+  <body ng-app="BookingsApp" ng-cloak>
     <!--header start-->
     <header class="head-section">
       <div class="navbar navbar-default navbar-static-top container">
@@ -168,7 +168,9 @@
                         </span>
                       </td>
                       <td>
-                        {{item.StartDay}}
+                        <span class="day">
+                          {{item.StartDate}}
+                        </span>
                       </td>
                       <td>
                         {{item.StartTime}}
@@ -231,7 +233,9 @@
                           </span>
                       </td>
                       <td>
-                        {{item.StartDay}}
+                          <span class="day">
+                            {{item.StartDate}}
+                          </span>
                       </td>
                       <td>
                         {{item.StartTime}}

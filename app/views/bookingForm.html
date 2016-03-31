@@ -1,28 +1,37 @@
-<div class="container" ng-controller="availController">
+<div class="container ng-cloak" ng-controller="availController" ng-cloak>
     <div class="row  mar-b-30">
         <div id="portfoliolist">
             
             <div class="col-md-12">
                 <!--<h2 id="forms-horizontal">Horizontal form</h2>-->
                 <!--<p>Use Bootstrap's predefined grid classes to align labels and groups of form controls in a horizontal layout by adding <code>.form-horizontal</code> to the form. Doing so changes <code>.form-group</code>s to behave as grid rows, so no need for <code>.row</code>.</p>-->
-                <div class="bs-example">
+                <div class="bs-example" date="date">
                     <form class="form-horizontal" role="form">
-                      <div class="form-group">
+                      <div class="form-group ng-cloak" ng-cloak>
                         <label for="inputEmail3" class="col-sm-2 control-label">Date</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputEmail3" placeholder="{{availBookingDetail.StartDate}}" disabled="true">
+                            <span class="date form-control ng-cloak" disabled="true" id="inputDate3" ng-cloak>
+                              {{availBookingDetail.StartDate}}
+                            </span>
+                            <!-- input type="text" class="form-control" id="inputEmail3" value="{{availBookingDetail.StartDate}}" placeholder="{{availBookingDetail.StartDate}}" disabled="true" -->
                         </div>
                       </div>
-                      <div class="form-group">
+                      <div class="form-group ng-cloak" ng-cloak>
                         <label for="inputPassword3" class="col-sm-2 control-label">Day</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputPassword3" placeholder="{{availBookingDetail.StartDay}}" disabled="true">
+                          <span class="day form-control ng-cloak" disabled="true" id="inputDay3" >
+                            {{availBookingDetail.StartDate}}
+                          </span>
+                         <!-- <input type="text" class="form-control" id="inputPassword3" placeholder="{{availBookingDetail.StartDay}}" disabled="true">-->
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="inputPassword3" class="col-sm-2 control-label">Time</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputPassword3" placeholder="{{availBookingDetail.StartTime}}" disabled="true">
+                          <span class="form-control" disabled="true" id="inputTime3">
+                            {{availBookingDetail.StartTime}}
+                          </span>
+                          <!--<input type="text" class="form-control" id="inputPassword3" placeholder="{{availBookingDetail.StartTime}}" disabled="true">-->
                         </div>
                       </div>
                       <div class="form-group">
