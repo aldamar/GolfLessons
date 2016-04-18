@@ -45,28 +45,6 @@ angular.module('Bookings.services', []).
           headers : { 'Content-Type': 'application/x-www-form-urlencoded', 'Access-Control-Allow-Origin' : '**', 'Access-Control-Allow-Methods' : 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Allow-Headers' : 'Origin, Content-Type, X-Auth-Token' }  // set the headers so angular passing info as form data (not request payload)
       });
     }
-    
-    
-//     $scope.processForm = function() {
-//   $http({
-//   method  : 'POST',
-//   url     : 'process.php',
-//   data    : $.param($scope.formData),  // pass in data as strings
-//   headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  // set the headers so angular passing info as form data (not request payload)
-// })
-//   .success(function(data) {
-//     console.log(data);
-
-//     if (!data.success) {
-//       // if not successful, bind errors to error variables
-//       $scope.errorName = data.errors.name;
-//       $scope.errorSuperhero = data.errors.superheroAlias;
-//     } else {
-//       // if successful, bind success message to message
-//       $scope.message = data.message;
-//     }
-//   });
-// };
         
     return bookingsAPI;
   });

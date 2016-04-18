@@ -116,8 +116,8 @@ router.route('/updateBooking/:bookingId')
                 if (err) {
                         res.send(err);
                     } else {
-                        emails.sendStudentEmail(req, res);
-                       // emails.sendCoachEmail(req, res);
+                        emails.sendStudentEmail(req, res, golfLesson.StartDate, golfLesson.StartTime);
+                        emails.sendCoachEmail(req, res, golfLesson.StartDate, golfLesson.StartTime);
                         res.jsonp({ message: 'Lesson Updated' });
                     }
             });
