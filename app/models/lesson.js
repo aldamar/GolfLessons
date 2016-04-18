@@ -3,9 +3,12 @@ var Schema       = mongoose.Schema;
 
 var LessonSchema   = new Schema({
     StartDate: Date,
+    StartDay: String,
     StartTime: String,
     Duration: Number,
-    Student: String,
+    StudentName: String,
+    StudentPhone: String,
+    StudentEmail: String, 
     Coach: String,
     Description: String,
     Status: String

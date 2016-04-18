@@ -1,13 +1,29 @@
 angular.module('Bookings.controllers', []).
-  controller('availController', function($scope, bookingsAPIservice) {
-    $scope.nameFilter = null;
+  controller('availController', function($timeout, $scope, $routeParams, $location, bookingsAPIservice) {
     $scope.availBookingsList = [];
-    
+    $scope.formData = {};
+   
     bookingsAPIservice.getAvailBookings().success(function (response) {
         //Dig into the respond to get the relevant data
         $scope.availBookingsList = response;
         $scope.$broadcast("bookings_done");
+
     });
+    
+    $scope.delete = function (idx) {
+        var booking_to_delete = $scope.availBookingsList[idx]._id;
+        bookingsAPIservice.deleteBooking(booking_to_delete).success(function (response) {
+            $scope.availBookingsList.splice(idx, 1);
+        });
+    };
+    
+    $scope.submit = function(idx) {
+        var booking_to_update = $scope.bookingId;
+        bookingsAPIservice.updateBooking(booking_to_update, $scope.formData).success(function (response) {
+              $location.url('/bookings/' + $scope.bookingId + '/success');
+        });
+     };
+    
 }).
   
 controller('bookedController', function($scope, bookingsAPIservice) {
@@ -19,6 +35,14 @@ controller('bookedController', function($scope, bookingsAPIservice) {
         $scope.bookingsList = response;
         $scope.$broadcast("bookings_done");
     });
+    
+    $scope.delete = function (idx) {
+        var booking_to_delete = $scope.bookingsList[idx]._id;
+        bookingsAPIservice.deleteBooking(booking_to_delete).success(function (response) {
+            $scope.bookingsList.splice(idx, 1);
+        });
+    };
+    
 }).
 
 controller('availBookingDetailController', function($scope, $routeParams, bookingsAPIservice) {

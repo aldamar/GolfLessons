@@ -12,6 +12,7 @@ var express    = require('express');        // call express
 var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
 var moment = require('moment');
+var nodemailer = require('nodemailer');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -20,6 +21,21 @@ app.use(bodyParser.json());
 //app.use(bodyParser.jsonp());
 app.set('jsonp callback name', 'callback');
 
+//CORS
+var allowCrossDomain = function(req, res, next) {
+    if ('OPTIONS' == req.method) {
+      res.header('Access-Control-Allow-Origin', '*');
+      res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS');
+      res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+      res.send(200);
+    }
+    else {
+      next();
+    }
+};
+
+app.use(allowCrossDomain);
+
 var port = process.env.PORT || 1234;        // set our port
 
 // ROUTES FOR OUR API
@@ -27,6 +43,8 @@ var port = process.env.PORT || 1234;        // set our port
 var router = express.Router();              // get an instance of the express Router
 
 router.use('/', Routes);
+
+router.use(allowCrossDomain);
 
 // middleware to use for all requests
 router.use(function(req, res, next) {

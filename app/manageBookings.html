@@ -57,11 +57,11 @@
                   </li>
 
                   <li>
-                      <a href="bookALesson.html">Book a Lesson</a>
+                      <a href="bookALesson.html#/bookings/">Book a Lesson</a>
                   </li>
                   
                   <li>
-                      <a href="proShop.html">Pro Shop</a>
+                      <a href="#">Pro Shop</a>
                   </li>
 
                   <li>
@@ -73,7 +73,7 @@
                   </li>
                   
                    <li>
-                      <a href="contact.html">Contact</a>
+                      <a href="#">Contact</a>
                   </li>
               </ul>
           </div>
@@ -117,7 +117,7 @@
           <!--<h1 id="tables" class="page-header">-->
           <!--  Tables-->
           <!--</h1>-->
-
+          
           <h2 id="tables-responsive">
             Upcoming Lessons
           </h2>
@@ -176,7 +176,7 @@
                         {{item.StartTime}}
                       </td>
                       <td>
-                        {{item.Student}}
+                        {{item.StudentName}}
                       </td>
                       <td>
                         {{item.Description}}
@@ -185,7 +185,7 @@
                         {{item.Status}}
                       </td>
                       <td>
-                        <button class="btn btn-danger btn-sm">Delete</button>&nbsp;&nbsp;<button class="btn btn-success btn-sm">Confirm</button>
+                        <a  class="btn btn-danger btn-sm" ng-click="delete($index)">Delete</a>
                       </td>
                     </tr>
                   </tbody>
@@ -244,9 +244,10 @@
                         {{item.Status}}
                       </td>
                       <td>
-                        <form method="POST" name="{{ 'form' + item._id }}" action="{{ 'http://golflessons-aldamar.c9users.io/api/golfLesson/' + item._id }}">
-                          <input name='submit' type="submit" value="Delete" form="{{ 'form' + item._id }}" class="btn btn-danger btn-sm"></input>
-                        </form>
+                        <!--<form method="POST" name="{{ 'form' + item._id }}" action="{{ 'http://golflessons-aldamar.c9users.io/api/golfLesson/' + item._id }}">-->
+                        <!--  <input name='submit' type="submit" value="Delete" form="{{ 'form' + item._id }}" class="btn btn-danger btn-sm"></input>-->
+                        <!--</form>-->
+                        <a  class="btn btn-danger btn-sm" ng-click="delete($index)">Delete</a>
                       </td>
                     </tr>
                   </tbody>
@@ -286,8 +287,8 @@
 
                         <li><i class="fa fa-angle-right"></i><a href="index.html">Home</a></li>
                         <li><i class="fa fa-angle-right"></i><a href="bookALesson.html">Book a Lesson</a></li>
-                        <li><i class="fa fa-angle-right"></i><a href="proShop.html">Pro Shop</a></li>
-                        <li><i class="fa fa-angle-right"></i><a href="contact.html">Contact Us</a></li>
+                        <li><i class="fa fa-angle-right"></i><a href="#">Pro Shop</a></li>
+                        <li><i class="fa fa-angle-right"></i><a href="#">Contact Us</a></li>
                 
                     </ul>
                     </div>

@@ -1,7 +1,9 @@
 var express = require('express')
   , router = express.Router()
   , Lesson = require('../models/lesson')
-  , moment = require('moment');
+  , moment = require('moment')
+  , nodemailer = require('nodemailer')
+  , emails = require('../controllers/emails');
 // ----------------------------------------------------
 router.route('/golfLesson')
 
@@ -13,7 +15,7 @@ router.route('/golfLesson')
         golfLesson.StartDate = "21 March";  
         golfLesson.StartTime = "7.30pm"
         golfLesson.Duration = 30; 
-        golfLesson.Student = "";
+        golfLesson.StudentName = "";
         golfLesson.Coach = "Danny";
         golfLesson.Description = "";
         golfLesson.Status = "unbooked";
@@ -59,6 +61,7 @@ router.route('/bookedGolfLesson')
     
             res.jsonp(golfLesson);
         });
+        
 })
   
   
@@ -72,25 +75,6 @@ router.route('/golfLesson/:lesson_id')
             if (err)
                 res.send(err);
             res.jsonp(golfLesson);
-        });
-    })
-    
-    .put(function(req, res) {
-        // use our lesson model to find the lesson we want
-        Lesson.findById(req.params.lesson_id, function(err, golfLesson) {
-
-            if (err)
-                res.send(err);
-
-            golfLesson.Status = "booked";  // update the lesson info
-
-            // save the lesson
-            golfLesson.save(function(err) {
-                if (err)
-                    res.send(err);
-
-                res.jsonp({ message: 'Lesson updated!' });
-            });
         });
     })
     
@@ -113,6 +97,33 @@ router.route('/golfLesson/:lesson_id')
         });
 })
 
+// ----------------------------------------------------
+router.route('/updateBooking/:bookingId')
+    .get(function(req, res) {
+        // use our lesson model to find the lesson we want
+        Lesson.findById(req.params.bookingId, function(err, golfLesson) {
+
+            if (err)
+                res.send(err);
+
+            golfLesson.Status = "booked";  // update the lesson info
+            golfLesson.StudentName = req.query.studentname;
+            golfLesson.StudentPhone = req.query.studentphone;
+            golfLesson.StudentEmail = req.query.studentemail;
+
+            // save the lesson
+            golfLesson.save(function(err) {
+                if (err) {
+                        res.send(err);
+                    } else {
+                        emails.sendStudentEmail(req, res);
+                       // emails.sendCoachEmail(req, res);
+                        res.jsonp({ message: 'Lesson Updated' });
+                    }
+            });
+        });
+    })
+
 router.route('/availGolfLesson/:bookingId')
 
     // get the lesson with that id (accessed at GET http://localhost:8080/api/voucher/:voucher_id)
@@ -124,44 +135,29 @@ router.route('/availGolfLesson/:bookingId')
         });
     })
     
-    // .put(function(req, res) {
-    //     // use our lesson model to find the lesson we want
-    //     Lesson.findById(req.params.lesson_id, function(err, golfLesson) {
 
-    //         if (err)
-    //             res.send(err);
+router.route('/deleteBooking/:bookingId')
 
-    //         golfLesson.Status = "booked";  // update the lesson info
-
-    //         // save the lesson
-    //         golfLesson.save(function(err) {
-    //             if (err)
-    //                 res.send(err);
-
-    //             res.jsonp({ message: 'Lesson updated!' });
-    //         });
-    //     });
-    // })
-    
-    // .post(function (req, res) {
-        
-    //     Lesson.findById(req.params.lesson_id, 
-    //         function(err, golfLesson) {
-    //             if (err)
-    //                 res.send(err);
+    // get the lesson with that id (accessed at GET http://localhost:8080/api/voucher/:voucher_id)
+    .get(function(req, res) {
+        Lesson.findById(req.params.bookingId, 
+            function(err, golfLesson) {
+                if (err)
+                    res.send(err);
                 
-    //              golfLesson.remove(function(err) {
-    //                 if (err) {
-    //                     res.statusCode = 403;
-    //                     res.send(err);
-    //                 } else {
-    //                     //res.json(golfLesson);
-    //                     res.jsonp({ message: 'Lesson Removed' });
-    //                 }
-    //             });   
+                 golfLesson.remove(function(err) {
+                    if (err) {
+                        res.statusCode = 403;
+                        res.send(err);
+                    } else {
+                        //res.json(golfLesson);
+                        res.jsonp({ message: 'Lesson Removed' });
+                    }
+                });   
                     
-    //     });
-//})
+        });
+    })
+    
 
 // ----------------------------------------------------
 router.route('/addGolfLesson')
@@ -175,12 +171,13 @@ router.route('/addGolfLesson')
         // create a new instance of the Lesson model
         var golfLesson = new Lesson(); 
         golfLesson.StartDate = formStartDate;
+        golfLesson.StartDay = formStartDate.format("dddd");
         golfLesson.StartTime = req.body.starttime;
         golfLesson.Duration = 30; 
-        golfLesson.Student = "Barry";
+        golfLesson.StudentName = "";
         golfLesson.Coach = "Danny";
-        golfLesson.Description = "irons lesson";
-        golfLesson.Status = "booked";
+        golfLesson.Description = "";
+        golfLesson.Status = "unbooked";
 
         //save the lesson and check for errors
         golfLesson.save(function(err) {
@@ -190,5 +187,7 @@ router.route('/addGolfLesson')
             res.jsonp({ message: 'Lesson Added!' });
         });
 })
+
+
     
 module.exports = router
