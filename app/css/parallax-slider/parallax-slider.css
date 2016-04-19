@@ -1,3 +1,6 @@
+.da-bgimage{
+	background: transparent url(../../img/parallax-slider/images/main-bg.jpg) repeat 0% 0%;
+}
 .da-slider{
 	width: 100%;
 	height: 550px;
@@ -5,7 +8,7 @@
 	position: relative;
 	margin: 0 auto;
 	overflow: hidden;
-	background: transparent url(../../img/parallax-slider/images/main-bg.jpg) repeat 0% 0%;
+	background: transparent;
 	border-top: 1px solid #eee;
 	border-bottom: 1px solid #eee;
 	/*box-shadow: 0px 1px 1px rgba(0,0,0,0.2), 0px -2px 1px #fff;*/
