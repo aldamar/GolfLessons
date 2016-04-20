@@ -64,7 +64,6 @@ router.route('/bookedGolfLesson')
         
 })
   
-  
 
 // ----------------------------------------------------
 router.route('/golfLesson/:lesson_id')

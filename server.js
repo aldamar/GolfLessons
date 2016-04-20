@@ -13,6 +13,8 @@ var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
 var moment = require('moment');
 var nodemailer = require('nodemailer');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
