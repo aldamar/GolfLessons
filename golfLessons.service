@@ -1,0 +1,14 @@
+[Unit]
+Description=Golf Lessons App
+
+[Service]
+ExecStart=http-server -a  0.0.0.0 -p 8082 -c-1
+Restart=always
+User=nobody
+Group=nobody
+Environment=PATH=/usr/bin:/usr/local/bin
+Environment=NODE_ENV=production
+WorkingDirectory=/home/damien_mcgrath7/GolfLessons
+
+[Install]
+WantedBy=multi-user.target
