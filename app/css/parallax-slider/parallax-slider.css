@@ -1,5 +1,5 @@
 .da-bgimage{
-	background: transparent url(../../img/parallax-slider/images/main-bg.jpg) repeat 0% 0%;
+	background: transparent url(../../img/parallax-slider/images/golf_ball_tee_med_1.jpg) repeat 0% 0%;
 }
 .da-slider{
 	width: 100%;
@@ -56,21 +56,21 @@
 	opacity: 1;
 }
 .da-slide h2{
-	color: #fff;
+	color: #48cfad;
 	font-size: 40px;
 	/*width: 32%;*/
-	top: 60px;
+	top: 30px;
 	white-space: nowrap;
 	z-index: 10;
-	text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+	/*text-shadow: 1px 1px 1px rgba(0,0,0,0.1);*/
 	font-family: 'Economica', Arial, sans-serif;
-	font-weight: 700;
+	font-weight: 500;
 	margin-left: -8%;
 }
 .da-slide p{
 	width: 45%;
 	top: 260px;
-	color: #ffffff;
+	color: #48cfad;
 	font-size: 18px;
 	line-height: 26px;
 	height: 80px;

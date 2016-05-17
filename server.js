@@ -5,7 +5,7 @@ var Routes     = require('./app/controllers/routes');
 var Lesson     = require('./app/models/lesson');
 var mongoose   = require('mongoose');
 //mongoose.connect('mongodb://0.0.0.0:27017'); // connect to our database
-mongoose.connect('mongodb://146.148.62.134:80/golfDB');
+mongoose.connect('mongodb://130.211.195.148:27017');
 
 // =============================================================================
 
