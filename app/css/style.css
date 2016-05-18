@@ -3007,6 +3007,9 @@ div.header h3{
     line-height: 1px;
 }
 
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
 .hr-inner{
     width:8px;
     height: 9px;

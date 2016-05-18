@@ -67,7 +67,7 @@ directive('date', function ($timeout) {
                 return moment(value).format("dddd");
             });
         }
-        $timeout(formatDate, 200);
+        $timeout(formatDate, 700);
       }
     }
 }).
